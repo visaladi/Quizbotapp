@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  …
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz</h1>
+
+    {% if error %}
+      <p class="error">{{ error }}</p>
+
+      <!-- show the upload form again -->
+      <form action="/quiz" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf,.txt" required>
+        <button type="submit">Try Again</button>
+      </form>
+
+    {% elif questions %}
+      <form action="/result" method="post">
+        {% for qid, q in questions.items() %}
+          <div class="question-block">
+            <p class="question">{{ q.question }}</p>
+            <div class="sentence">{{ q.answer }}</div>
+            <div class="options">
+              {% for oid, opt in q.options.items() %}
+                <label class="option">
+                  <input
+                    type="radio"
+                    name="q{{ qid }}"
+                    value="{{ opt }}"
+                    required
+                  >
+                  <span class="option-text">{{ opt }}</span>
+                </label>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+      </form>
+
+    {% else %}
+      <!-- initial GET or no POST yet -->
+      <form action="/quiz" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf,.txt" required>
+        <button type="submit">Upload & Generate Questions</button>
+      </form>
+    {% endif %}
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

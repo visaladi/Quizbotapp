@@ -1,0 +1,109 @@
+/* General Body Style */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+/* Page Containers */
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-top: 20px;
+}
+
+/* File Upload Form */
+form input[type="file"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Quiz Styles */
+
+/* The question prompt */
+.question {
+    margin: 20px 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Show the extracted sentence in a grey box */
+.sentence {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    font-style: italic;
+    white-space: pre-wrap; /* preserve line breaks */
+    border-radius: 5px;
+}
+
+/* Wrap each radio + label together */
+.option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.option input {
+    margin-right: 10px;
+}
+
+.option:hover {
+    background-color: #f1f1f1;
+}
+
+/* When checked, accent the radio and optionally the text */
+.option input:checked + .option-text {
+    color: #fff;
+}
+
+.option input:checked {
+    accent-color: #4CAF50;
+}
+
+/* Submit / Result Styles */
+.result {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
